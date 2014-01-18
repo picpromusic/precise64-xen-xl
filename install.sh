@@ -17,8 +17,11 @@ update-grub
 
 sed -i 's/TOOLSTACK=.*\+/TOOLSTACK="xl"/' /etc/default/xen
 
+rm -rf /usr/lib/xorg/modules
+
 apt-get -y remove linux-headers-$(uname -r) linux-headers-generic build-essential xserver-xorg xserver-xorg-core
 apt-get -y purge linux-headers-$(uname -r) linux-headers-generic build-essential xserver-xorg xserver-xorg-core
+apt-get -y autoremove
 unset VBOX_VERSION
 
 echo "Don't forgot to reboot"
